@@ -1,2 +1,373 @@
 <!DOCTYPE html>
-<h3>Test!</h3>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" >
+		<title>Calculate.pw</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+				<link rel="icon" href="i/favicon.png" type="image/x-icon">
+		<!-- Odometer -->
+		<link rel="stylesheet" href="http://github.hubspot.com/odometer/themes/odometer-theme-default.css" />
+		<script src="http://github.hubspot.com/odometer/odometer.js"></script>
+		<!-- Google Fonts -->
+				<link href="https://fonts.googleapis.com/css?family=Dosis:100,200,300,400,600,500,700,800,900|Open+Sans:100,200,300,400,500,600,700,800,900&amp;subset=latin" rel="stylesheet">
+				<!-- Bootstrap 4.3.1 CSS -->
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+		<!-- Slick 1.8.1 jQuery plugin CSS (Sliders) -->
+		<link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+		<!-- Fancybox 3 jQuery plugin CSS (Open images and video in popup) -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+		<!-- AOS 2.3.1 jQuery plugin CSS (Animations) -->
+		<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+		<!-- FontAwesome CSS -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+		<!-- Startup 3 CSS (Styles for all blocks) -->
+		<link href="css/style.css" rel="stylesheet" />
+		<!-- jQuery 3.3.1 -->
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<!-- Calculator Logic -->
+		<script src="js/calculate.js"></script>
+	</head> 
+	<body onload="load();">
+<!-- Navigation 18 -->
+
+<nav class="navigation_18 bg-dark pt-30 pb-30 lh-40 text-center">
+	<div class="container px-xl-0">
+		<div class="row justify-content-between align-items-center">
+			<div class="col-lg-auto text-lg-left" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+				<a href="#" class="logo link color-white"><img src="i/favicon.png" style="max-height: 40px;"> Calcualte.pw</a>
+			</div>
+			<div class="col-lg-9 text-lg-right" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+			</div>
+		</div>
+	</div>
+</nav>
+<!-- Feature 44 -->
+
+<section class="feature_44 bg-light pt-100 text-center text-md-left">
+	<div class="container px-xl-0">
+		<div class="row align-items-center align-items-lg-start">
+			<div class="col-xl-1"></div>
+			<div class="col-lg-5 col-md-7" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+				<h2 class="mt-20 mb-30 small">Calculate gems, <br />Make Trades</h2>
+				<div class="f-22 color-heading text-adaptive">
+					Calculate.pw lets you create and share
+					fish and gemstone tables which can be used 
+					to easily share trades with other players.
+				</div>
+				<button onclick="scrolltocalc();" class="mt-30 btn border-gray color-main">Calculator</button>
+			</div>
+			<div class="col-md-1"></div>
+			<div class="col-lg-5 col-md-4" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+				<img srcset="images/connect.png" src="images/connect.png" class="img" alt="" />			
+			</div>
+		</div>
+		<div class="mt-75 row justify-content-center justify-content-md-between align-items-end align-items-lg-start flex-row-reverse row2">
+			<div class="col-xl-1"></div>
+			<div class="col-lg-5 col-md-6 pb-60 pb-lg-0 inner2" style="margin-bottom: 2vw;" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+				<h2 class="mt-55 mb-30 small">Made by Players <br />For the Players</h2>
+				<div class="f-22 color-heading text-adaptive">
+					Created by Parmashawn, a long-time player 
+					of Pixelworlds who has since moved on but
+					still enjoys coding community creations.
+				</div>
+			</div>
+			<div class="col-md-1" ></div>
+			<div class="col-xl-4 col-lg-5 col-md-5 col-sm-6 col-8 " data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+				<img srcset="images/me.png" src="images/me.png" class="img-fluid img" alt="" />			
+			</div>
+			<div class="col-xl-1"></div>
+		</div>
+	</div>
+</section>
+<!-- Content 31 -->
+
+<section id="calculator" class="content_31 bg-dark pt-100 pb-70 text-center color-white">
+	<div class="container px-xl-0">
+		<div class="row justify-content-center">
+			<h2 class="small col-lg-8" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">Calculator</h2>
+			<div class="col-lg-8 mt-25 mb-55 f-18 medium op-7 text-adaptive">
+				<span data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">				
+				Calculate the gem value of any fish or gemstone through table format and easily <br />
+				share tables with friends or players in-game or online.				</span>				
+			</div>
+		</div>
+		<div class="row justify-content-center">
+			<form>
+				<div class="input-group mb-2 mt-4">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><img src="images/herring.png" class="emojicon"></span>
+					</div><input class="form-control calc-input" id="het" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="hes" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="hem" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="hel" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="heh" oninput="calculate();" placeholder="H" type="number">
+				</div>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/kingfish.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="kit" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="kis" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="kim" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="kil" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="kih" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/butterflyfish.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="but" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="bus" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="bum" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="bul" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="buh" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/goldfish.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="got" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="gos" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="gom" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="gol" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="goh" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/carp.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="cat" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="cas" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="cam" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="cal" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="cah" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/halibut.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="hat" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="has" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="ham" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="hal" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="hah" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/sea.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="set" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="ses" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="sem" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="sel" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="seh" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/tuna.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="tut" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="tus" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="tum" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="tul" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="tuh" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/acid.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="act" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="acs" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="acm" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="acl" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="ach" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/dumbfish.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="dut" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="dus" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="dum" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="dul" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="duh" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/piranha.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="pit" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="pis" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="pim" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="pil" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="pih" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-4">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><img src="images/crab.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="crt" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="crs" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="crm" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="crl" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="crh" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:55px"><img src="images/topaz.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="tot" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="tos" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="tom" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="tol" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="toh" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:55px"><img src="images/emerald.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="emt" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="ems" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="emm" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="eml" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="emh" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:55px"><img src="images/sapphire.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="sat" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="sas" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="sam" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="sal" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="sah" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-2">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:55px"><img src="images/ruby.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="rut" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="rus" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="rum" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="rul" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="ruh" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-4">
+						<div class="input-group-prepend">
+							<span class="input-group-text" style="width:55px"><img src="images/diamond.png" class="emojicon"></span>
+						</div><input class="form-control calc-input" id="dit" oninput="calculate();" placeholder="T" type="number"> <input class="form-control calc-input" id="dis" oninput="calculate();" placeholder="S" type="number"> <input class="form-control calc-input" id="dim" oninput="calculate();" placeholder="M" type="number"> <input class="form-control calc-input" id="dil" oninput="calculate();" placeholder="L" type="number"> <input class="form-control calc-input" id="dih" oninput="calculate();" placeholder="H" type="number">
+					</div>
+				</form>
+				<form>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend"><span class="input-group-text" style="width:55px"><img src="images/gempouchs.png" class="emojicon"></span></div>
+						<input class="form-control calc-input" id="sgp" oninput="calculate();" placeholder="S" type="number">
+						<div class="input-group-prepend"><span class="input-group-text" style="width:55px"><img src="images/gempouchm.png" class="emojicon"></span></div>
+						<input class="form-control calc-input" id="mgp" oninput="calculate();" placeholder="M" type="number">
+						<div class="input-group-prepend"><span class="input-group-text" style="width:55px"><img src="images/gempouchl.png" class="emojicon"></span></div>
+						<input class="form-control calc-input" id="lgp" oninput="calculate();" placeholder="L" type="number">
+					</div>
+				</form>
+			</form>	
+		</div>
+		<div class="row justify-content-center mt-2">
+			<table>
+				<tr>
+					<td >
+						<img src="images/gem.png" style="padding-right: 1vw; max-width: 60px; max-height: auto;">
+					</td>
+					<td style="padding-right: 1.5vw;">
+						<div name="total_gems" id="odometer1" class="odometer">0</div>
+					</td>
+					<td style="padding-right: 1.5vw;">
+						<h1>=</h1>
+					</td>
+					<td>
+						<img src="images/byte.png" style="padding-right: 1vw; max-width: 60px; max-height: auto;">
+					</td>
+					<td>
+						<div name="total_bytes" id="odometer2" class="odometer">0</div>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="row justify-content-center mt-2">
+			<table>
+				<tr>
+					<td >
+						<img src="images/gem.png" style="padding-right: 0.3vw; max-width: 20px; max-height: auto;">
+					</td>
+					<td style="padding-right: 0.5vw;">
+						<input type="number" class="invis-input" id="gpb" value="10" oninput="calculate();">
+					</td>
+					<td style="padding-right: 0.5vw;">
+						<h4>/</h4>
+					</td>
+					<td>
+						<img src="images/byte.png" style="padding-right: 0.3vw; max-width: 20px; max-height: auto;">
+					</td>
+					<td>
+						<h5>1  
+								<i style="padding-left: 10px;" class="fas fa-info-circle" data-bs-toggle="tooltip" data-bs-placement="top" title="10 gems per byte is equal to 2500/250 gembytes"></i>
+							
+						</h5>
+					</td>
+				</tr>
+			</table>
+		</div>
+		<div class="row justify-content-center mt-5">
+			<button onclick="reset();" href="/" style="padding-bottom: 50px;" class="mt-30 btn color-red"><i class="fas fa-trash"></i> Reset</button>
+			<button onclick="sharelink();" data-toggle="modal" data-target="#exampleModal" href="#" style="padding-bottom: 50px; margin-left: 10vw;" class="mt-30 btn color-whitec"><i class="fas fa-share"></i> Share Link</button>
+
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+				  <div class="modal-content" style="border: 4px solid #4ddaf7; background: rgba(33,88,147,1);">
+					<div class="modal-header">
+					  <h5 class="modal-title" id="exampleModalLabel">Share This Table with Others!</h5>
+					  <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: red;">
+						<span aria-hidden="true">&times;</span>
+					  </button>
+					</div>
+					<div class="modal-body">
+						<div class="input-group">
+							<input class="form-control" id="share" placeholder="..." type="text" style="background-color:#fff; color:royalblue;" readonly>
+						</div>
+					</div>
+					<div class="modal-footer">
+					  <button type="button" class="btn btn-primary" onclick="copylink();" style="background-color: rgb(33, 164, 168);"><i class="fas fa-copy"></i> Copy</button>
+					</div>
+				  </div>
+				</div>
+			  </div>
+
+		</div>
+		</div>
+	</div>
+</section>
+
+
+<!-- Footer 11 -->
+
+<footer class="footer_11 bg-dark pt-45 pb-45 color-white text-center">
+	<div class="container px-xl-0">
+		<div class="row align-items-center">
+			<div class="mb-20 mb-lg-0 col-lg-3" data-aos-duration="600" data-aos="fade-down" data-aos-delay="0">
+				<a href="#" class="logo link color-white">Calculate.pw</a>
+			</div>
+			<div class="col-lg-9 text-lg-right" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+				<a href="#" class="link color-white mx-10">Terms</a>
+				<div class="d-inline-block socials">
+					<a href="#" class="link color-white mx-10"><i class="fab fa-instagram"></i></a>
+				</div>
+			</div>
+		</div>
+		<div data-aos-duration="600" data-aos="fade-down" data-aos-delay="600"> 
+			<div class="mt-45 mb-45 hr h-2 bg-white op-3"></div>
+		</div>
+		<div class="row">
+			<div class="col-lg-5 text-lg-right" data-aos-duration="600" data-aos="fade-down" data-aos-delay="300">
+				<div class="text-adaptive">
+					&copy; 2021 Calcualte.pw. All rights reserved. Assets belong to Kukouri Mobile Entertainment and are used within their accepted guidlines
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+<!-- forms alerts -->
+<div class="alert alert-success alert-dismissible alert-form-success" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	Thanks for your message!
+</div>
+<div class="alert alert-warning alert-dismissible alert-form-check-fields" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	Please, fill in required fields.
+</div>
+<div class="alert alert-danger alert-dismissible alert-form-error" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	An error occurred while sending data :(
+</div>
+<!-- popup with video -->
+<div class="overlay"></div>
+
+<div class="video_popup">
+	<a class="close">
+		<img srcset="i/close_white@2x.png 2x" src="i/close_white.png" alt="" />
+	</a>
+	<div class="d-flex align-items-center justify-content-center w-full h-full iframe_container"></div>
+</div>
+
+<!-- Bootstrap 4.3.1 JS -->
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+<!-- Fancybox 3 jQuery plugin JS (Open images and video in popup) -->
+<script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+<!-- Google maps JS API -->
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyDP6Ex5S03nvKZJZSvGXsEAi3X_tFkua4U"></script>
+<!-- Slick 1.8.1 jQuery plugin JS (Sliders) -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+<!-- AOS 2.3.1 jQuery plugin JS (Animations) -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<!-- Maskedinput jQuery plugin JS (Masks for input fields) -->
+<script src="js/jquery.maskedinput.min.js"></script>
+<!-- Startup 3 JS (Custom js for all blocks) -->
+<script src="js/script.js"></script>
+<script>
+	var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+	var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+	return new bootstrap.Tooltip(tooltipTriggerEl)
+	})
+</script>
+
+</body>
+</html>
