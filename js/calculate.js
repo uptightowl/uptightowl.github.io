@@ -165,42 +165,64 @@ function calculate() {
             odometer2.innerHTML = final_byte;
         }, 10);
     }
-    generatelink();
 }  
 
 function generatelink() {
 	var link = window.location.href.split('#')[0] + "#";
+    var fullcode = "";
 	var inputs = document.getElementsByClassName("calc-input");
 	var i;
 	for (i=0; i < inputs.length; i++) { // adds all fish and gemstones to link if value above zero
 		if (inputs[i].value > 0) {
 			var str = inputs[i].id + "=" + inputs[i].value + "&";
-			link += str;
-		}
-		
-		}
-	if (document.getElementById("gpb").value != 10) {var str = "gpb" + "=" + document.getElementId("gpb").value + "&"; link += str;}
-	if (link.slice(0, -1) == window.location.href.split('#')[0]) {document.getElementById("share").value = "...";}
-	else {document.getElementById("share").value = link.slice(0, -1);}
+			fullcode += str;}
+        }
+    if (fullcode) {
+	console.log(fullcode);
+    console.log(btoa(fullcode));
+    hashedlink = btoa(fullcode);
+    linkkey = makeid(6);
+    keyedlink = "https://cors.bridged.cc/https://jsonbase.com/pwcalctest/" + linkkey;
+    postData(keyedlink, {linkkey: hashedlink});
+    console.log(keyedlink, {btoalink: hashedlink});
+    }
+    document.getElementById("share").value = linkkey;
 }
 
-function load() {
-	var hashParams = window.location.hash.substr(1).split('&'); // substr(1) to remove the `#`
-		for(var i = 0; i < hashParams.length; i++){
-			var p = hashParams[i].split('=');
-			document.getElementById(p[0]).value = decodeURIComponent(p[1]);
-		}
-        scrolltocalc();
-		calculate();
+function loadurl() {
+    var codeparsed = (window.location.search).substring(1);
+    document.getElementById("code-input").value = codeparsed;
+    loadcode();
 
+}
+
+
+
+
+
+function loadcode(code = "") {
+    var code = document.getElementById("code-input").value;
+    var encodedvalues = JSON.parse(getData("https://cors.bridged.cc/https://jsonbase.com/pwcalctest/", code));
+    console.log("encoded link is " + encodedvalues.linkkey);
+    var decodedvalues = atob(encodedvalues["linkkey"]).split("&");
+
+    
+
+	for(var i = 0; i < decodedvalues.length; i++){
+			var p = decodedvalues[i].split('=');
+			document.getElementById(p[0]).value = decodeURIComponent(p[1]);
+    scrolltocalc();
+	calculate();
+    }
 }
 
 function scrolltocalc() {
     $(document).ready(function () {
         // Handler for .ready() called.
-        $('html, body').animate({
+        $('html, body').stop(true, false).animate({
             scrollTop: $('#calculator').offset().top
         }, 'slow');
+        
     });
 
 }
@@ -219,4 +241,45 @@ function copylink() {
 	copyText.select();
 	copyText.setSelectionRange(0, 99999); /* For mobile devices */
 	 document.execCommand("copy");
+}
+
+
+
+function getData(url = '', shortcode = '') {
+    var xmlHttp = new XMLHttpRequest();
+    url += shortcode;
+    xmlHttp.open( "GET", url, false ); // false for synchronous request
+    xmlHttp.send( null );
+    console.log(xmlHttp.responseText) ;
+    return xmlHttp.responseText
+}
+
+
+async function postData(url = '', data = {}) {
+  // Default options are marked with *
+  const response = await fetch(url, {
+    method: 'PUT', // *GET, POST, PUT, DELETE, etc.
+    mode: 'cors', // no-cors, *cors, same-origin
+    cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
+    credentials: 'same-origin', // include, *same-origin, omit
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+    redirect: 'follow', // manual, *follow, error
+    referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+    body: JSON.stringify(data) // body data type must match "Content-Type" header
+  });
+  return response.json(); // parses JSON response into native JavaScript objects
+}
+
+function makeid(length) {
+    var result           = '';
+    var characters       = 'ABCDEFGHJKMNOPQRSTUVWXYZ123456789';
+    var charactersLength = characters.length;
+    for ( var i = 0; i < length; i++ ) {
+      result += characters.charAt(Math.floor(Math.random() * 
+ charactersLength));
+   }
+   return result;
 }

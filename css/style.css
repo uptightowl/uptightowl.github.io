@@ -64,7 +64,7 @@ input::-webkit-inner-spin-button {
 }
 
 html {
-  scroll-behavior:auto;
+  scroll-behavior: initial;
 }
 
 .odometer.odometer-animating-up .odometer-ribbon-inner, .odometer.odometer-animating-down.odometer-animating .odometer-ribbon-inner {
