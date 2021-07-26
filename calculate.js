@@ -169,7 +169,7 @@ function generatelink() {
 		});
 	}
 	document.getElementById("share").value = linkkey;
-	document.getElementById("sharelink").value = window.location.href + "?" + linkkey;
+	document.getElementById("sharelink").value = "https://www.calculate.pw/?" + linkkey;
 }
 
 function loadurl() {
