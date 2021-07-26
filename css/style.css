@@ -32,7 +32,13 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-
+input.btn {
+  -webkit-user-select: initial;
+  -khtml-user-select: initial;
+  -moz-user-select: initial;
+  -ms-user-select: initial;
+  user-select: initial;
+}
 
 .input-group {
   outline: #1fa3ee;
@@ -84,6 +90,15 @@ html {
   font-size: max(3vw, 30px);
   line-height: 70px;
 }
+
+.loadcodebox, .loadcodebox:hover, 
+.loadcodebox:active, .loadcodebox:not(:placeholder-shown),
+.loadcodebox:focus
+  {
+  color: rgb(31, 31, 31);
+  background-color: white;
+}
+
 
 
 
