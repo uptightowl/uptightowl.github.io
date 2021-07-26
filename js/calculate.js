@@ -174,7 +174,7 @@ function generatelink() {
 
 function loadurl() {
 	var codeparsed = (window.location.search).substring(1);
-	document.getElementById("code-input").value = codeparsed.toUpperCase();
+	document.getElementById("code-input").value = codeparsed.toUpperCase().replace(/\s/g, '');
 	loadcode();
 }
 
